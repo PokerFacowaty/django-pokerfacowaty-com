@@ -1,6 +1,6 @@
 html {
-    background-color: rgb(253, 71, 0);
-    color: black;
+    background-color: black;
+    color: rgb(253, 71, 0);
 }
 
 @font-face {
@@ -39,7 +39,7 @@ body {
 }
 
 a:link, a:visited {
-    color: black;
+    color: rgb(253, 71, 0);
     text-decoration: none;
     font-family: Noto Sans Bold;
 }
@@ -102,8 +102,8 @@ img {
     margin-bottom: 0px;
     font-family: Noto Sans;
     font-size: 25px;
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: rgb(253, 71, 0);
 }
 
 .same-line-comment {
