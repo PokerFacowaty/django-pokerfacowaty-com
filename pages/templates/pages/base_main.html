@@ -1,0 +1,48 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block css %}{% static "pages/css/main.css" %}{% endblock %}
+{% block content %}
+<p class="buttons-box">
+    <!-- First of all, stop reading my comments -->
+    <!-- <a href="./speedruns">Speedruns</a> No idea for this for now -->
+    <a href="./events">Events</a>
+    <!-- Ideas to add: Games (Resources), Music  -->
+    <a href="./projects">Projects</a>
+    <a href="./setup">Setup</a>
+    <a id="cs" href="./cs">Cheat Sheets</a>
+    <!-- <a class="buttons" href="./archive">Archive</a>  -->
+    <!--  <a id="pokers-diary" href="./old-pokers-diary/">Old Poker's Diary</a> Part of the archive?  -->
+</p>
+<p class="sm-buttons-box">
+    <a href="https://twitter.com/pokerfacowaty" target="_blank">Twitter</a>
+    <a href="https://www.speedrun.com/user/PokerFacowaty" target="_blank">Speedrun.com</a>
+    <a href="https://www.twitch.tv/pokerfacowaty" target="_blank">Twitch</a>
+    <a href="https://www.youtube.com/channel/UCB51o2WJAWagziqoLqqDJBQ" target="_blank">YouTube</a>
+    <a href="https://www.last.fm/user/PokerFacowaty" target="_blank">Last.fm</a>
+    <a href="https://github.com/pokerfacowaty" target="_blank">GitHub</a>
+    <span id="multi-word-button">Discord: PokerFacowaty#4175</span>
+    <!-- CodeWars?  -->
+</p>
+<p id="text-pp">
+    <img id="profile-pic" src="{% static "pages/img/main/2.png" %}">
+    Hi! I'm PokerFacowaty or Bartek. I'm a speedrunner and a speedrun charity event organizer. I'm the CEO, Head Organizer and Fundraising Leader in the 
+    <a href="https://gsps.pl/" target="_blank"> GSPS Foundation</a> 
+    since July 2021 and have been organising GSPS events since 2017. Additionally, I help with 
+    <a href="https://esamarathon.com/" target="_blank">ESA</a>
+    as a Fundraising Senior, as well as 
+    <a href="https://www.twitch.tv/gtamarathon" target="_blank">GTAMarathon</a> in terms of Scheduling and Restreaming.
+    <br><br>
+    This is a personal page, but it's supposed to have some resources useful to other people as well. It took me quite some time to build it from scratch without any frameworks (UPDATE: Django baaaaby!), but I'm pretty happy with the result. It is not by any means final, I have a couple more ideas for it and it will most likely change whenever I gain some experience with tools more advanced than basic HTML and CSS.
+    <br><br>
+    Orange is the most beautiful color on earth and you can't convince me otherwise.
+    <span id="text-profile-pic">Drawn by the one and only <a href="https://linktr.ee/piankart" target="_blank">pianka</a></span>
+</p>
+    <h1>Latest blog posts</h1>
+    <p id="blog-link"><a href="./blog">See all</a></p>
+{% for post in posts %}
+    <div class="post-box">
+        <p class="post-link"><a href="{% url 'post' post.SHORT_TITLE %}">{{ post.TITLE }}</a></p>
+        <p class="post-date">{{ post.PUBLISHED }}</p>
+    </div>
+{% endfor %}
+{% endblock %}

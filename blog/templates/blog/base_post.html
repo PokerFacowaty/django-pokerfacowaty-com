@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block css %}{% static "blog/css/post.css" %}{% endblock %}
+{% block title %}<h1>{{ post.TITLE }}</h1>{% endblock %}
+{% block content %}
+<p id="back-button"><a href="{% url 'blog' %}">Go back to all posts</a></p>
+<p class="date">{{ post.PUBLISHED }}</p>
+{{ paml|safe }}
+{% endblock %}

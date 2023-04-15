@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block css %}{% static "blog/css/blog.css" %}{% endblock %}
+{% block title %}<h1>Blog</h1>{% endblock %}
+{% block content %}
+{% for post in posts %}
+<div class="post-box">
+    <p class="post-link"><a href="{% url 'post' post.SHORT_TITLE %}">{{ post.TITLE }}</a></p>
+    <p class="post-date">{{ post.PUBLISHED }}</p>
+</div>
+{% endfor %}
+{% endblock %}

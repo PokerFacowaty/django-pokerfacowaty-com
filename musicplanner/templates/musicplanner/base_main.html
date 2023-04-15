@@ -1,0 +1,36 @@
+{% extends 'musicplanner/base.html' %}
+{% load static %}
+{% block css %}{% static "musicplanner/css/mp.css" %}{% endblock %}
+{% block css_dark %}{% static "musicplanner/css/mp_dark.css" %}{% endblock %}
+{% block title %}<h1>Music Planner</h1>{% endblock %}
+{% block content %}
+<form method="post" class="input-form">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Add" class="submit-button" formaction="./add">
+</form>
+<table>
+    <tr>
+        <th>Artist</th>
+        <th>(Songs)</th>
+        <th>Album</th>
+        <th>Notes</th>
+        <th>Downloaded</th>
+        <th>Added</th>
+    </tr>
+    {% for entry in entries %}
+    <tr>
+        <td>{{ entry.ARTIST }}</td>
+        <td>{{ entry.SONGS }}</td>
+        <td>{{ entry.ALBUM }}</td>
+        <td>{{ entry.NOTE }}</td>
+        {% if entry.DOWNLOADED %}
+        <td>✓</td>
+        {% else %}
+        <td><form action="./mark-downloaded/{{ entry.id }}" method="post">{% csrf_token %}<input class="submit-button" type="submit" name="{{ entry.id }}" value="Mark downloaded"></input></form></td>
+        {% endif %}
+        <td><form action="./mark-added/{{ entry.id }}" method="post">{% csrf_token %}<input class="submit-button" type="submit" name="{{ entry.id }}" value="Mark added"></input></form></td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}
