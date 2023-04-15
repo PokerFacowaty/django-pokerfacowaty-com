@@ -1,6 +1,7 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 {% block css %}{% static "blog/css/blog.css" %}{% endblock %}
+{% block css_dark %}{% static "blog/css/blog_dark.css"%}{% endblock %}
 {% block title %}<h1>Blog</h1>{% endblock %}
 {% block content %}
 {% for post in posts %}
