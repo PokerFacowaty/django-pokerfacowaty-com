@@ -23,4 +23,5 @@ def pamlpage(request, short):
     return render(request, 'pages/base_paml.html',
                            {'paml': converted,
                             'title': title,
-                            'css': f'pages/css/{short}.css'})
+                            'css': f'pages/css/{short}.css',
+                            'css_dark': f'pages/css/{short}_dark.css'})
