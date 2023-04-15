@@ -4,11 +4,38 @@
 <head>
     <meta charset="utf-8">
     <title>PokerFacowaty.com</title>
-    <link rel="stylesheet" type="text/css" href="{% block css %}{% endblock %}">
+    <link id="stylesheet"rel="stylesheet" type="text/css" href="">
     <link rel="icon" type="image/x-icon" href="{% static "pages/img/favicon.png" %}">
+    <script>
+        css = '{% block css %}{% endblock %}'
+        css_dark = '{% block css_dark %}{% endblock %}'
+
+        if (localStorage.getItem('darkMode') == 'enabled'){
+            document.getElementById('stylesheet').href = css_dark;
+        }
+        else if (localStorage.getItem('darkMode') == 'disabled'){
+            document.getElementById('stylesheet').href = css;
+        }
+        else {
+            localStorage.setItem('darkMode', 'disabled');
+            document.getElementById('stylesheet').href = css;
+        }
+
+        function darkMode() {
+            if (localStorage.getItem('darkMode') == 'enabled'){
+                localStorage.setItem('darkMode', 'disabled');
+                document.getElementById('stylesheet').href = css;
+            }
+            else if (localStorage.getItem('darkMode') == 'disabled') {
+                localStorage.setItem('darkMode', 'enabled');
+                document.getElementById('stylesheet').href = css_dark;
+            }
+        }
+    </script>
 </head>
 <body>
     <div id="pokerfacowaty-com-box">
+        <button onclick="darkMode()" id="dark-mode-button">Dark mode</button>
         <a class="links" href="{% url 'main' %}" id="link-main">PokerFacowaty.com</a>
     </div>
 {% block title %}{% endblock %}
