@@ -1,6 +1,7 @@
 html {
     background-color: rgb(253, 71, 0);
     color: black;
+    font-family: Noto Sans;
 }
 
 @font-face {
@@ -176,7 +177,7 @@ table, td {
     margin-left: 5px;
 }
 
-.full-width-code {
+.block-code {
     margin-top: 5px;
     margin-bottom: 10px;
     background-color: #000000;
@@ -186,14 +187,14 @@ table, td {
     color: white;
 }
 
-.full-width-code-comment {
+.block-code-comment {
     margin-top: 0px;
     padding-left: 0px;
     font-family: Noto Sans;
     font-size: 25px;
 }
 
-.full-width-code-small-comment {
+.block-code-small-comment {
     margin-top: -5px;
     margin-bottom: 0px;
     font-family: Noto Sans;
