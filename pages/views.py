@@ -9,8 +9,14 @@ def index(request):
     return render(request, 'pages/base_main.html', {'posts': posts})
 
 
-def archive(reuqest):
-    return render(reuqest, 'pages/base_archive.html')
+def archive(request):
+    return render(request, 'pages/base_archive.html')
+
+
+def dating(request):
+    return render(request, 'pages/base_dating.html',
+                           {'css': 'pages/css/dating.css',
+                            'css_dark': 'pages/css/dating_dark.css'})
 
 
 def pamlpage(request, short):
