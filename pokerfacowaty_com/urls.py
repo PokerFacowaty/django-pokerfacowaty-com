@@ -21,5 +21,6 @@ urlpatterns = [
     # path('accounts/', include('django.contrib.auth.urls')),
     path('mp/', include('musicplanner.urls')),
     path('blog/', include('blog.urls')),
+    path('playlists/', include('playlists.urls')),
     path('', include('pages.urls'))
 ]
