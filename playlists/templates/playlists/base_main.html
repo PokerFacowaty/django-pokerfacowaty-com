@@ -4,4 +4,7 @@
 {% block css_dark %}{% static "playlists/css/main_dark.css"%}{% endblock %}
 {% block title %}<h1>Playlists</h1>{% endblock %}
 {% block content %}
+{% for pl in playlists %}
+<a href="./{{ pl.SHORT_TITLE }}">{{ pl.TITLE }}</a>
+{% endfor %}
 {% endblock %}
