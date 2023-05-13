@@ -22,13 +22,9 @@ def add_music(request):
         form = MusicForm(request.POST)
         if form.is_valid():
             form.save()
-            form = MusicForm()
-            return render(request, 'musicplanner/base_add_new.html',
-                          {'form': form})
+            return redirect('mpindex')
     else:
-        form = MusicForm()
-        return render(request, 'musicplanner/base_add_new.html',
-                      {'form': form})
+        return redirect('mpindex')
 
 
 def mark_as_added(request, id):

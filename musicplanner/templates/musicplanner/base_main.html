@@ -4,10 +4,10 @@
 {% block css_dark %}{% static "musicplanner/css/mp_dark.css" %}{% endblock %}
 {% block title %}<h1>Music Planner</h1>{% endblock %}
 {% block content %}
-<form method="post" class="input-form">
+<form method="post" class="input-form" action="./add">
     {% csrf_token %}
     {{ form }}
-    <input type="submit" value="Add" class="submit-button" formaction="./add">
+    <input type="submit" value="Add" class="submit-button">
 </form>
 <table>
     <tr>
