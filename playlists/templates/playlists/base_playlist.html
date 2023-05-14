@@ -5,8 +5,15 @@
 {% block title %}<h1>{{ playlist.TITLE }}</h1>{% endblock %}
 {% block content %}
 <table>
+    <tr>
+        <th>Nr</th>
+        <th>Artist</th>
+        <th>Title</th>
+        <th>Album</th>
+    </tr>
     {% for song in csv %}
     <tr>
+        <td>{{ forloop.counter }}</td>
         <td>{{ song.Artist }}</td>
         <td>{{ song.Title }}</td>
         <td>{{ song.Album }}</td>
