@@ -7,16 +7,6 @@ import csv
 
 def index(request):
     playlists = Playlist.objects.filter(VISIBILITY='PU').order_by('TITLE')
-    # all_csvs = []
-    # for pl in playlists:
-    #     with open(Path(settings.PLAYLIST_CSV_DIR) / pl.CSV_FILENAME,
-    #               encoding="utf-8") as f:
-    #         rdr = csv.DictReader(f, delimiter=";")
-    #         parsed_csv = list(rdr)
-    #     all_csvs.append(parsed_csv)
-
-    # return render(request, 'playlists/base_main.html',
-    #               {'all_csvs': all_csvs})
     return render(request, 'playlists/base_main.html',
                   {'playlists': playlists})
 
