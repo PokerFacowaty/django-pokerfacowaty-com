@@ -17,9 +17,23 @@ def playlist(request, short):
         return redirect("/admin/")
 
     playlist = Playlist.objects.get(SHORT_TITLE=short)
-    with open(Path(settings.PLAYLIST_CSV_DIR) / playlist.CSV_FILENAME, 
+    with open(Path(settings.PLAYLIST_CSV_DIR) / playlist.CSV_FILENAME,
               encoding="utf-8") as f:
         rdr = csv.DictReader(f, delimiter=";")
-        parsed_csv = list(rdr)
+        parsed_csv = []
+        for nr, line in enumerate(rdr):
+            parsed_csv.append(line)
+            if isinstance(parsed_csv[-1]["Duration"], str):
+                dur_secs = parsed_csv[-1]["Duration"].split(".")[0]
+                # TODO: replace it with datetime probably
+                if int(dur_secs) % 60 >= 10:
+                    parsed_csv[-1]["Duration"] = (f"{int(dur_secs) // 60}"
+                                                + f":{int(dur_secs) % 60}")
+                else:
+                    parsed_csv[-1]["Duration"] = (f"{int(dur_secs) // 60}"
+                                                + f":0{int(dur_secs) % 60}")
+            else:
+                parsed_csv[-1]["Duration"] = "N/A"
+            parsed_csv[-1]["Nr"] = nr + 1
     return render(request, 'playlists/base_playlist.html',
                   {"playlist": playlist, 'csv': parsed_csv})

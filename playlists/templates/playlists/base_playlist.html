@@ -10,13 +10,15 @@
         <th>Artist</th>
         <th>Title</th>
         <th>Album</th>
+        <th>Duration</th>
     </tr>
     {% for song in csv %}
     <tr>
-        <td>{{ forloop.counter }}</td>
+        <td>{{ song.Nr }}
         <td>{{ song.Artist }}</td>
         <td>{{ song.Title }}</td>
         <td>{{ song.Album }}</td>
+        <td>{{ song.Duration }}</td>
     </tr>
     {% endfor %}
 </table>
