@@ -35,5 +35,8 @@ def playlist(request, short):
             else:
                 parsed_csv[-1]["Duration"] = "N/A"
             parsed_csv[-1]["Nr"] = nr + 1
+        sorted_by = request.GET.get('sortby', 'Nr')
+        rev = request.GET.get('reverse', 'False') == 'True'
+        parsed_csv.sort(key=lambda x: x[sorted_by], reverse=rev)
     return render(request, 'playlists/base_playlist.html',
                   {"playlist": playlist, 'csv': parsed_csv})
