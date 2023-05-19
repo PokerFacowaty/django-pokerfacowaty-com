@@ -5,6 +5,6 @@
 {% block title %}<h1>Playlists</h1>{% endblock %}
 {% block content %}
 {% for pl in playlists %}
-<a href="./{{ pl.SHORT_TITLE }}">{{ pl.TITLE }}</a>
+<div><a href="./{{ pl.SHORT_TITLE }}">{{ pl.TITLE }}</a></div>
 {% endfor %}
 {% endblock %}
