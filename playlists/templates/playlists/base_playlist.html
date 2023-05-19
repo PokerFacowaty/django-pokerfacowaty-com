@@ -2,7 +2,7 @@
 {% load static %}
 {% block css %}{% static "playlists/css/playlist.css" %}{% endblock %}
 {% block css_dark %}{% static "playlists/css/playlist_dark.css"%}{% endblock %}
-{% block title %}<h1>{{ playlist.TITLE }}</h1>{% endblock %}
+{% block title %}<a href="/playlists/{{ playlist.SHORT_TITLE }}"><h1>{{ playlist.TITLE }}</h1></a>{% endblock %}
 {% block content %}
 <script>
     function sortPlaylist(key){
