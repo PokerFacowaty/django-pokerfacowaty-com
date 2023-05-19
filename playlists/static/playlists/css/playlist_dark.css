@@ -77,3 +77,7 @@ table {
 #back-button {
     margin-bottom: 10px;
 }
+
+#description {
+    font-family: Noto Sans;
+}
