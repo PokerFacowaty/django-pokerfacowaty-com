@@ -19,3 +19,6 @@ class Playlist(models.Model):
     VISIBILITY = models.CharField(max_length=20,
                                   choices=VISIBILITY_CHOICES,
                                   default=PRIVATE)
+
+    def __str__(self):
+        return f"{self.TITLE} ({self.SHORT_TITLE})"
