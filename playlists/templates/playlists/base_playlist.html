@@ -4,13 +4,27 @@
 {% block css_dark %}{% static "playlists/css/playlist_dark.css"%}{% endblock %}
 {% block title %}<h1>{{ playlist.TITLE }}</h1>{% endblock %}
 {% block content %}
+<script>
+    nrReversed = false
+    artistReversed = false
+    titleReversed = false
+    albumReversed = false
+    function sortPlaylist(key){
+        console.log(key);
+    }
+
+    function durationPlaceholder(){
+        let but = document.getElementById("duration-button");
+        but.innerHTML = "Who the hell sorts by duration, amirite?"
+    }
+</script>
 <table>
     <tr>
-        <th>Nr</th>
-        <th>Artist</th>
-        <th>Title</th>
-        <th>Album</th>
-        <th>Duration</th>
+        <th><button onclick="sortPlaylist('Nr')" class="th-button">Nr</button></th>
+        <th><button onclick="sortPlaylist('Artist')" class="th-button">Artist</button></th>
+        <th><button onclick="sortPlaylist('Title')" class="th-button">Title</button></th>
+        <th><button onclick="sortPlaylist('Title')" class="th-button">Album</button></th>
+        <th><button onclick="durationPlaceholder()" class="th-button" id="duration-button">Duration</button></th>
     </tr>
     {% for song in csv %}
     <tr>
