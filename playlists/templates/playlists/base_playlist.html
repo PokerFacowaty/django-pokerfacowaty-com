@@ -18,6 +18,9 @@
         // else sortby this
         else {
             url.searchParams.set("sortby", key)
+            if (url.searchParams.has("reverse")){
+                url.searchParams.delete("reverse")
+            }
         }
         window.location.href = url;
     }
