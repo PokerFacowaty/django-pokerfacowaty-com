@@ -5,12 +5,21 @@
 {% block title %}<h1>{{ playlist.TITLE }}</h1>{% endblock %}
 {% block content %}
 <script>
-    nrReversed = false
-    artistReversed = false
-    titleReversed = false
-    albumReversed = false
     function sortPlaylist(key){
-        console.log(key);
+        var url = new URL(window.location.href);
+        // if this is already the same and reverse, unreverse
+        if (url.searchParams.get("sortby") == key && url.searchParams.get("reverse") == "True"){
+            url.searchParams.set("reverse", "False");
+        }
+        // if this is already the same, reverse
+        else if (url.searchParams.get("sortby") == key){
+            url.searchParams.set("reverse", "True")
+        }
+        // else sortby this
+        else {
+            url.searchParams.set("sortby", key)
+        }
+        window.location.href = url;
     }
 
     function durationPlaceholder(){
@@ -23,7 +32,7 @@
         <th><button onclick="sortPlaylist('Nr')" class="th-button">Nr</button></th>
         <th><button onclick="sortPlaylist('Artist')" class="th-button">Artist</button></th>
         <th><button onclick="sortPlaylist('Title')" class="th-button">Title</button></th>
-        <th><button onclick="sortPlaylist('Title')" class="th-button">Album</button></th>
+        <th><button onclick="sortPlaylist('Album')" class="th-button">Album</button></th>
         <th><button onclick="durationPlaceholder()" class="th-button" id="duration-button">Duration</button></th>
     </tr>
     {% for song in csv %}
