@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'blog.apps.BlogConfig',
     'musicplanner.apps.MusicplannerConfig',
+    'playlists.apps.PlaylistsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -132,3 +133,5 @@ STATIC_ROOT = os.environ['STATIC_ROOT']
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+PLAYLIST_CSV_DIR = os.environ["PLAYLIST_CSV_DIR"]

@@ -1,0 +1,55 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block css %}{% static "playlists/css/playlist.css" %}{% endblock %}
+{% block css_dark %}{% static "playlists/css/playlist_dark.css"%}{% endblock %}
+{% block title %}<a href="/playlists/{{ playlist.SHORT_TITLE }}"><h1>{{ playlist.TITLE }}</h1></a>{% endblock %}
+{% block content %}
+<script>
+    function sortPlaylist(key){
+        var url = new URL(window.location.href);
+        // if this is already the same and reverse, unreverse
+        if (url.searchParams.get("sortby") == key && url.searchParams.get("reverse") == "True"){
+            url.searchParams.set("reverse", "False");
+        }
+        // if this is already the same, reverse
+        else if (url.searchParams.get("sortby") == key){
+            url.searchParams.set("reverse", "True")
+        }
+        // else sortby this
+        else {
+            url.searchParams.set("sortby", key)
+            if (url.searchParams.has("reverse")){
+                url.searchParams.delete("reverse")
+            }
+        }
+        window.location.href = url;
+    }
+
+    function durationPlaceholder(){
+        let but = document.getElementById("duration-button");
+        but.innerHTML = "Who the hell sorts by duration, amirite?"
+    }
+</script>
+{% if playlist.DESCRIPTION %}
+<p id="description">{{ playlist.DESCRIPTION }}</p>
+{% endif %}
+<div id="back-button"><a href="{% url 'playlists' %}">Go back to all playlists</a></div>
+<table>
+    <tr>
+        <th><button onclick="sortPlaylist('Nr')" class="th-button">Nr</button></th>
+        <th><button onclick="sortPlaylist('Artist')" class="th-button">Artist</button></th>
+        <th><button onclick="sortPlaylist('Title')" class="th-button">Title</button></th>
+        <th><button onclick="sortPlaylist('Album')" class="th-button">Album</button></th>
+        <th><button onclick="durationPlaceholder()" class="th-button" id="duration-button">Duration</button></th>
+    </tr>
+    {% for song in csv %}
+    <tr>
+        <td>{{ song.Nr }}
+        <td>{{ song.Artist }}</td>
+        <td>{{ song.Title }}</td>
+        <td>{{ song.Album }}</td>
+        <td>{{ song.Duration }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
