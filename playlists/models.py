@@ -15,6 +15,7 @@ class Playlist(models.Model):
     SHORT_TITLE = models.CharField(max_length=20)
     LAST_UPDATED = models.DateTimeField()
     CSV_FILENAME = models.CharField(max_length=100)
+    DESCRIPTION = models.TextField(blank=True)
     VISIBILITY = models.CharField(max_length=20,
                                   choices=VISIBILITY_CHOICES,
                                   default=PRIVATE)
