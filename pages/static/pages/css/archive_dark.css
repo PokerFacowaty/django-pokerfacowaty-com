@@ -1,6 +1,6 @@
 html {
-    background-color: rgb(253, 71, 0);
-    color: black;
+    background-color: black;
+    color: rgb(253, 71, 0);
 }
 
 @font-face {
@@ -39,7 +39,7 @@ body {
 }
 
 a:link, a:visited {
-    color: black;
+    color: rgb(253, 71, 0);
     text-decoration: none;
     font-family: Noto Sans Bold;
 }

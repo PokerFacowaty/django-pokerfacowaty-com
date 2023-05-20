@@ -10,7 +10,9 @@ def index(request):
 
 
 def archive(request):
-    return render(request, 'pages/base_archive.html')
+    return render(request, 'pages/base_archive.html',
+                           {'css': 'pages/css/archive.css',
+                           'css_dark': 'pages/css/archive_dark.css'})
 
 
 def dating(request):
