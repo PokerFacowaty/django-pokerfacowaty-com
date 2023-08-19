@@ -38,6 +38,7 @@ SESSION_COOKIE_SECURE = True
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'pages.apps.PagesConfig',
     'blog.apps.BlogConfig',
     'musicplanner.apps.MusicplannerConfig',
