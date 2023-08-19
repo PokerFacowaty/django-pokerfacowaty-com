@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from rest_framework.urlpatters import format_suffix_patterns
+from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
     path('music-entries/', views.MusicList.as_view()),
