@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .models import MusicEntry, MusicForm, MarkDownloaded
 from django.contrib.auth import authenticate, login
+from musicplanner.serializers import MusicSerializer
+from rest_framework import generics, permissions
 
 
 def index(request):
@@ -48,3 +50,15 @@ def mark_as_downloaded(request, id):
         entry.DOWNLOADED = True
         entry.save()
         return redirect('mpindex')
+
+
+class MusicList(generics.ListCreateAPIView):
+    queryset = MusicEntry.objects.all()
+    serializer_class = MusicSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+class MusicEntryDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = MusicEntry.objects.all()
+    serializer_class = MusicSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
