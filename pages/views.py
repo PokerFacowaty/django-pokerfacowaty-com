@@ -37,6 +37,7 @@ def pamlpage(request, short):
     if short == "mc":
         game_content = sum_top_players(5, settings.MC_LOG_DIR)
         content['game_content'] = game_content
+        return render(request, 'pages/base_paml_mc.html', content)
     # elif title == "gtasa":
         # something
 
