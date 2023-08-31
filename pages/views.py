@@ -25,25 +25,22 @@ def pamlpage(request, short):
     if PaMLPage.objects.get(SHORT_TITLE=short).VISIBILITY == "PR":
         if not request.user.is_authenticated:
             return redirect("/admin/")
+
     title = PaMLPage.objects.get(SHORT_TITLE=short).TITLE
     raw_paml = PaMLPage.objects.get(SHORT_TITLE=short).PAML_CONTENT
     converted = convert_from_text(raw_paml)
+    content = {'paml': converted,
+               'title': title,
+               'css': ''}
 
     game_content = []
     if short == "mc":
         game_content = sum_top_players(5, settings.MC_LOG_DIR)
-        print(game_content)
-        return render(request, 'pages/base_paml_mc.html',
-                      {'paml': converted,
-                        'title': title,
-                        'game_content': game_content,
-                        'css': f'pages/css/{short}.css',
-                        'css_dark': f'pages/css/{short}_dark.css'})
+        content['game_content'] = game_content
     # elif title == "gtasa":
         # something
-    return render(request, 'pages/base_paml.html',
-                           {'paml': converted,
-                            'title': title,
-                            'game_content': game_content,
-                            'css': f'pages/css/{short}.css',
-                            'css_dark': f'pages/css/{short}_dark.css'})
+
+    if short in ['events']:
+        content['css'] = f'pages/css/{short}.css'
+
+    return render(request, 'pages/base_paml.html', content)
