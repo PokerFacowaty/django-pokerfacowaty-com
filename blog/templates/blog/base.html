@@ -4,9 +4,10 @@
 <head>
     <meta charset="utf-8">
     <title>PokerFacowaty.com</title>
-    <link id="stylesheet" rel="stylesheet" type="text/css" href="">
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="{% static "blog/css/base.css" %}">
+    {% block extra_css %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{% static "blog/img/favicon.png" %}">
-    <script>
+    <!--script>
         css = '{% block css %}{% endblock %}'
         css_dark = '{% block css_dark %}{% endblock %}'
 
@@ -31,7 +32,7 @@
                 document.getElementById('stylesheet').href = css_dark;
             }
         }
-    </script>
+    </script-->
 </head>
 <body>
     <div id="pokerfacowaty-com-box">

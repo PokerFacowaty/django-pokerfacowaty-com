@@ -1,7 +1,6 @@
 {% extends 'blog/base.html' %}
 {% load static %}
-{% block css %}{% static "blog/css/post.css" %}{% endblock %}
-{% block css_dark %}{% static "blog/css/post_dark.css" %}{% endblock %}
+{% block extra_css %}<link id="stylesheet" rel="stylesheet" type="text/css" href="{% static "blog/css/post.css" %}">{% endblock %}
 {% block title %}<h1>{{ post.TITLE }}</h1>{% endblock %}
 {% block content %}
 <p id="back-button"><a href="{% url 'blog' %}">Go back to all posts</a></p>

@@ -1,0 +1,259 @@
+@font-face {
+    font-family: Noto Sans;
+    src: url('../fonts/NotoSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: Noto Sans Bold;
+    src: url('../fonts/NotoSans-Bold.ttf')
+}
+
+html {
+    background-color: rgb(253, 71, 0);
+    color: black;
+    font-family: Noto Sans;
+}
+
+.dark-mode-bg {
+    background-color: black;
+    color: rgb(253, 71, 0);
+}
+
+body {
+    min-height: 100vh;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#pokerfacowaty-com-box {
+    text-align: center;
+    position: relative;
+}
+
+#dark-mode-button {
+    background-color: black;
+    color: white;
+    position: absolute;
+    right: 0px;
+}
+
+#link-main {
+	font-size:40px;
+	font-weight:bold;
+	text-align:center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a:link, a:visited {
+    color: black;
+    text-decoration: none;
+    font-family: Noto Sans Bold;
+}
+
+.dark-mode-links {
+    color: rgb(253, 71, 0);
+}
+
+a:hover {
+    color: blue;
+}
+
+h1 {
+    font-family: Noto Sans Bold;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 0px;
+}
+
+h2 {
+    font-family: Noto Sans Bold;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 0px;
+}
+
+p {
+    text-align: justify;
+    margin-top: 0px;
+}
+
+.paragraph {
+    margin-top: 0px;
+    overflow: hidden;
+    clear: both;
+}
+
+.img-full {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.img-half-left {
+    max-width: 50%;
+    max-height: 300px;
+    height: auto;
+    float: left;
+    margin-right: 10px;
+    padding-top: 5px; /* Making it visually in line with the text */
+}
+
+.img-half-right {
+    max-width: 50%;
+    max-height: 300px;
+    height: auto;
+    float: right;
+    margin-left: 10px;
+    padding-top: 5px; /* Making it visually in line with the text */
+}
+
+img {
+    max-width: 100%;
+}
+
+.line-code {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    background-color: #000000;
+    border: 2px solid white;
+    display: block;
+    padding: 10px;
+    color: white;
+    white-space: pre-wrap;
+}
+
+.line-code-comment {
+    margin-top: 0px;
+    margin-bottom: 2px;
+    padding-left: 0px;
+    font-size: 25px;
+}
+
+.line-code-small-comment {
+    margin-top: -7px;
+    margin-bottom: 0px;
+    font-size:18px;
+}
+
+.block-code {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    background-color: #000000;
+    border: 2px solid white;
+    display: block;
+    padding: 10px;
+    color: white;
+}
+
+.block-code-comment {
+    margin-top: 0px;
+    padding-left: 0px;
+    font-size: 25px;
+}
+
+.block-code-small-comment {
+    margin-top: -5px;
+    margin-bottom: 0px;
+    font-size:18px;
+}
+
+.list {
+    margin-top: 0px;
+    font-size: 18px;
+}
+
+table, td {
+    border: 2px solid white;
+    border-collapse: collapse;
+    background-color: black;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.collapsible-box-full {
+    float:left;
+    width: 900px;
+    margin-left: 5px;
+}
+
+.collapsible-box-half-left {
+    float:left;
+    width: 440px;
+    margin-left: 5px;
+}
+
+.collapsible-box-half-right {
+    float:right;
+    width: 440px;
+    margin-right: 5px;
+}
+
+.tab-comment {
+    margin-top: -10px;
+    margin-bottom: 3px;
+    font-family: Noto Sans;
+    font-size:18px;
+}
+
+.header {
+    user-select: none;
+    display: flex;
+    cursor: pointer;
+    font-family: Noto Sans Bold;
+    font-size: 40px;
+    margin-bottom: -5px;
+}
+
+.entry {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.icon {
+    margin-right: 20px;
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s;
+}
+
+details[open] summary span.icon {
+    transform-origin: 20px 30px;
+    transform: rotate(90deg);
+}
+
+.command {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 25px;
+    color: white;
+    background-color: black;
+}
+
+.same-line-comment {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 5px;
+    font-family: Noto Sans;
+    font-size: 25px;
+}
+
+.small-comment {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: Noto Sans;
+    font-size: 18px;
+}
+
+.post-link {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: -15px;
+}
+
+.post-date {
+    font-family: Noto Sans Bold;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 15px;
+}
