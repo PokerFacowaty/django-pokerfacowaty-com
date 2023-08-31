@@ -1,9 +1,10 @@
 {% extends 'pages/base.html' %}
 {% load static %}
-{% block css %}{% static "pages/css/main.css" %}{% endblock %}
-{% block css_dark %}{% static "pages/css/main_dark.css" %}{% endblock %}
+{% comment %} {% block css %}{% static "pages/css/main.css" %}{% endblock %}
+{% block css_dark %}{% static "pages/css/main_dark.css" %}{% endblock %} {% endcomment %}
+{% block extra_css %}<link id="stylesheet" rel="stylesheet" type="text/css" href="{% static "pages/css/main.css"%}">{% endblock %}
 {% block content %}
-<p class="buttons-box">
+<div class="buttons-box">
     <!-- First of all, stop reading my comments -->
     <!-- <a href="./speedruns">Speedruns</a> No idea for this for now -->
     <a class="buttons" href="./archive">Archive</a>
@@ -13,8 +14,8 @@
     <a id="cs" href="./cs">Cheat Sheets</a>
     <a href="./playlists">Playlists</a>
     <a id="pokers-diary" href="https://old.pokerfacowaty.com/">Old Poker's Diary</a>
-</p>
-<p class="sm-buttons-box">
+</div>
+<div class="sm-buttons-box">
     <a href="https://twitter.com/pokerfacowaty" target="_blank">Twitter</a>
     <a href="https://www.speedrun.com/user/PokerFacowaty" target="_blank">Speedrun.com</a>
     <a href="https://www.twitch.tv/pokerfacowaty" target="_blank">Twitch</a>
@@ -23,7 +24,7 @@
     <a href="https://github.com/pokerfacowaty" target="_blank">GitHub</a>
     <span id="multi-word-button">Discord: PokerFacowaty#4175</span>
     <!-- CodeWars?  -->
-</p>
+</div>
 <p id="text-pp">
     <img id="profile-pic" src="{% static "pages/img/main/2.png" %}">
     Hi! I'm PokerFacowaty or Bartek. I'm a speedrunner and a speedrun charity event organizer. I'm the CEO, Head Organizer and Fundraising Leader in the 
@@ -39,7 +40,7 @@
     <span id="text-profile-pic">Drawn by the one and only <a href="https://linktr.ee/piankart" target="_blank">pianka</a></span>
 </p>
     <h1>Latest blog posts</h1>
-    <p id="blog-link"><a href="./blog">See all</a></p>
+    <div id="blog-link"><a href="./blog">See all</a><div>
 {% for post in posts %}
     <div class="post-box">
         <p class="post-link"><a href="{% url 'post' post.SHORT_TITLE %}">{{ post.TITLE }}</a></p>
