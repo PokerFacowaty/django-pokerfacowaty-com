@@ -136,3 +136,5 @@ STATIC_ROOT = os.environ['STATIC_ROOT']
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 PLAYLIST_CSV_DIR = os.environ["PLAYLIST_CSV_DIR"]
+
+MC_LOG_DIR = os.environ["MC_LOG_DIR"]
