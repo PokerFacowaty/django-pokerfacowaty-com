@@ -1,7 +1,10 @@
 {% extends 'pages/base.html' %}
 {% load static %}
-{% block css %}{% static css %}{% endblock %}
-{% block css_dark %}{% static css_dark %}{% endblock %}
+{% block extra_css %}
+{% if css != "" %}
+<link id="stylesheet"rel="stylesheet" type="text/css" href="{% static css %}">
+{% endif %}
+{% endblock %}
 {% block title %}<h1>{{ title }}</h1>{% endblock %}
 {% block content %}
 {% block game %}
