@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <title>PokerFacowaty.com</title>
-    <link id="stylesheet" rel="stylesheet" type="text/css" href="">
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="{% static "/musicplanner/css/mp.css" %}">
     <link rel="icon" type="image/x-icon" href="{% static "musicplanner/img/favicon.png" %}">
-    <script>
+    <!-- script>
         css = '{% block css %}{% endblock %}'
         css_dark = '{% block css_dark %}{% endblock %}'
 
@@ -30,7 +30,7 @@
                 document.getElementById('stylesheet').href = css_dark;
             }
         }
-    </script>
+    </script-->
 </head>
 <body>
     <button onclick="darkMode()" id="dark-mode-button">Dark mode</button>
