@@ -1,7 +1,6 @@
 {% extends 'pages/base.html' %}
 {% load static %}
-{% block css %}{% static css %}{% endblock %}
-{% block css_dark %}{% static css_dark %}{% endblock %}
+{% block extra_css %}<link id="stylesheet"rel="stylesheet" type="text/css" href="{% static "pages/css/dating.css"%}">{% endblock %}
 {% block title %}<h1>Why you should totally date me</h1>{% endblock %}
 {% block content %}
 <p id="subtitle">aka a bragathon written while feeling on one particular side of the "I am the best - Everyone hates me" spectrum</p>
