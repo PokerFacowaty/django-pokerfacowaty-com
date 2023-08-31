@@ -5,6 +5,7 @@ class PaMLPage(models.Model):
 
     PUBLIC = 'PU'
     PRIVATE = 'PR'
+    GAME = models.BooleanField(default=False)
     VISIBILITY_CHOICES = [(PUBLIC, 'Public'),
                           (PRIVATE, 'Private')]
     TITLE = models.CharField(max_length=100)
