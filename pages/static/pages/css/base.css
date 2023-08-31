@@ -135,7 +135,7 @@ img {
     font-size:18px;
 }
 
-.full-width-code {
+.block-code {
     margin-top: 5px;
     margin-bottom: 10px;
     background-color: #000000;
@@ -145,13 +145,13 @@ img {
     color: white;
 }
 
-.full-width-code-comment {
+.block-code-comment {
     margin-top: 0px;
     padding-left: 0px;
     font-size: 25px;
 }
 
-.full-width-code-small-comment {
+.block-code-small-comment {
     margin-top: -5px;
     margin-bottom: 0px;
     font-size:18px;
