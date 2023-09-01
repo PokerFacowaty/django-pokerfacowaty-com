@@ -6,34 +6,32 @@
     <title>PokerFacowaty.com</title>
     <link id="stylesheet" rel="stylesheet" type="text/css" href="{% static "/musicplanner/css/mp.css" %}">
     <link rel="icon" type="image/x-icon" href="{% static "musicplanner/img/favicon.png" %}">
-    <!-- script>
-        css = '{% block css %}{% endblock %}'
-        css_dark = '{% block css_dark %}{% endblock %}'
-
-        if (localStorage.getItem('darkMode') == 'enabled'){
-            document.getElementById('stylesheet').href = css_dark;
-        }
-        else if (localStorage.getItem('darkMode') == null){
-            localStorage.setItem('darkMode', 'disabled');
-        }
-        else {
-            document.getElementById('stylesheet').href = css;
-        }
-
-        function darkMode() {
-            if (localStorage.getItem('darkMode') == 'enabled'){
-                localStorage.setItem('darkMode', 'disabled');
-                document.getElementById('stylesheet').href = css;
-            }
-            else if (localStorage.getItem('darkMode') == 'disabled') {
-                localStorage.setItem('darkMode', 'enabled');
-                document.getElementById('stylesheet').href = css_dark;
+    <script>
+    function setMode(dark = ((localStorage.getItem("darkMode") == "enabled") || false)){
+        if (dark){
+            localStorage.setItem("darkMode", "enabled");
+            document.documentElement.classList.add("dark-mode-bg");
+            for (el of document.getElementsByTagName("a")){
+                el.classList.add("dark-mode-links");
             }
         }
-    </script-->
+        else if (!dark){
+            localStorage.setItem("darkMode", "disabled");
+            document.documentElement.classList.remove("dark-mode-bg");
+            for (el of document.getElementsByTagName("a")){
+                el.classList.remove("dark-mode-links");
+            }
+        }
+    }
+
+    function reverseMode(){
+        if (localStorage.getItem("darkMode") == "disabled") setMode(true);
+        else if (localStorage.getItem("darkMode") == "enabled") setMode(false);
+    }
+    </script>
 </head>
-<body>
-    <button onclick="darkMode()" id="dark-mode-button">Dark mode</button>
+<body onLoad="setMode()">
+    <button onclick="reverseMode()" id="dark-mode-button">Dark mode</button>
     <div id="pokerfacowaty-com-box">
         <a href="{% url 'main' %}" id="link-main">PokerFacowaty.com</a>
     </div>
