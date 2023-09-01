@@ -50,11 +50,15 @@ a:link, a:visited {
     font-family: Noto Sans Bold;
 }
 
-.dark-mode-links {
+.dark-mode-links:link, .dark-mode-links:visited {
     color: rgb(253, 71, 0);
 }
 
 a:hover {
+    color: blue;
+}
+
+.dark-mode-links:hover {
     color: blue;
 }
 
