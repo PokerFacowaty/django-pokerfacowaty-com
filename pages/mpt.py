@@ -70,9 +70,9 @@ def sum_top_players(number, filepath=Path(__file__).parent / "server.log"):
 
     nicks = sorted(nicks.items(), key=lambda x: x[1], reverse=True)
     final_list = ([f"{x[0]} - "
-                  + f"{x[1].days * 24 + x[1].seconds // 3600}:"
-                  + f"{x[1].seconds % 3600 // 60}:"
-                  + f"{x[1].seconds % 60}" for x in nicks[0:number]])
+                   + f"{x[1].days * 24 + x[1].seconds // 3600:02d}:"
+                   + f"{x[1].seconds % 3600 // 60:02d}:"
+                   + f"{x[1].seconds % 60:02d}" for x in nicks[0:number]])
 
     return final_list
 
