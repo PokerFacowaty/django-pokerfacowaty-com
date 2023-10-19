@@ -1,18 +1,19 @@
-web:
-  build: .
-  command: sh -c ". .venv/bin/activate && python3 manage.py migrate && python3 manage.py collectstatic --no-input --clear && python3 manage.py runserver 0.0.0.0:8000"
-  ports:
-    - "8000:8000"
-  volumes:
-    - "/home/pokerfacowaty/Docker/nginx-proxy-manager/data/www/static:/static"
-  environment:
-    - ALLOWED_HOSTS=[""]
-    - CSRF_TRUSTED_ORIGINS=[""]
-    - CSRF_COOKIE_SECURE=True
-    - DEBUG=False
-    - MC_LOG_DIR=
-    - PLAYLIST_CSV_DIR=
-    - SECRET_KEY=
-    - SESSION_COOKIE_SECURE=True
-    - STATIC=
-    - STATIC_ROOT=
+services:
+  web:
+    build: .
+    command: sh -c ". .venv/bin/activate && python3 manage.py migrate && python3 manage.py collectstatic --no-input --clear && python3 manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    volumes:
+      - "/home/pokerfacowaty/Docker/nginx-proxy-manager/data/www/static:/static"
+    environment:
+      - ALLOWED_HOSTS=[""]
+      - CSRF_TRUSTED_ORIGINS=[""]
+      - CSRF_COOKIE_SECURE=True
+      - DEBUG=False
+      - MC_LOG_DIR=
+      - PLAYLIST_CSV_DIR=
+      - SECRET_KEY=
+      - SESSION_COOKIE_SECURE=True
+      - STATIC=
+      - STATIC_ROOT=
