@@ -5,7 +5,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - "/home/pokerfacowaty/Docker/nginx-proxy-manager/data/www/static:/static"
+      - ""
     environment:
       - ALLOWED_HOSTS=[""]
       - CSRF_TRUSTED_ORIGINS=[""]
