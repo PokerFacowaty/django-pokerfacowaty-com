@@ -62,9 +62,11 @@ def sum_top_players(number, filepath=Path(__file__).parent / "server.log"):
     nicks = defaultdict(timedelta)
     for strline in log:
         line = strline.split()
-        if len(line) > 5 and line[5] == "logged" and line[3][0] != "/":
+        if (len(line) > 5 and line[5] == "logged" and line[3][0] != "/"
+           and line[3][0] != "["):
             temp[line[3]] = line[0] + " " + line[1]
-        elif len(line) > 5 and line[4] == "lost" and line[3][0] != "/":
+        elif (len(line) > 5 and line[4] == "lost" and line[3][0] != "/"
+              and line[3][0] != "["):
             nicks[line[3]] += (datetime.fromisoformat(line[0] + " " + line[1])
                                - datetime.fromisoformat(temp[line[3]]))
 
