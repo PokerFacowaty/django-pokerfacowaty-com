@@ -4,6 +4,7 @@ from blog.models import BlogPost
 from paml2html import convert_from_text
 from .mpt import sum_top_players
 from django.conf import settings
+import requests
 
 
 def index(request):
@@ -13,6 +14,11 @@ def index(request):
 
 def archive(request):
     return render(request, 'pages/base_archive.html')
+
+
+def cwk(request):
+    response = requests.get("https://cwk.pokerfacowaty.com")
+    return render(request, 'pages/base_cwk.html', {'counter': response.text})
 
 
 def dating(request):

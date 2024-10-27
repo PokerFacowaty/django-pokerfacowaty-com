@@ -1,0 +1,7 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block title %}<h1>{{ title }}</h1>{% endblock %}
+{% block content %}
+<p>"[C]trl-[W]... [K]URWA" is what happens when I accidentally press vim's 'delete previous word' keybind in a non-neovim window such as Firefox, which so far has happened:</p>
+<div style="font-size: 72px;text-align: center">{{ counter }} TIMES</div>
+{% endblock %}
