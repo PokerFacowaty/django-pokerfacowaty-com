@@ -3,23 +3,20 @@ from .models import MusicEntry, MusicForm, MarkDownloaded
 from django.contrib.auth import authenticate, login
 from musicplanner.serializers import MusicSerializer
 from rest_framework import generics, permissions
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def index(request):
-    if not request.user.is_authenticated:
-        return redirect("/admin/")
-    else:
-        entries = MusicEntry.objects.filter(
-                  ADDED_TO_LIBRARY=False).order_by('MADE')
-        form = MusicForm()
-        return render(request, 'musicplanner/base_main.html',
-                      {'entries': entries, 'form': form})
+    entries = MusicEntry.objects.filter(
+              ADDED_TO_LIBRARY=False).order_by('MADE')
+    form = MusicForm()
+    return render(request, 'musicplanner/base_main.html',
+                  {'entries': entries, 'form': form})
 
 
+@login_required
 def add_music(request):
-    if not request.user.is_authenticated:
-        return redirect("/admin/")
-
     if request.method == 'POST':
         form = MusicForm(request.POST)
         if form.is_valid():
@@ -29,10 +26,8 @@ def add_music(request):
         return redirect('mpindex')
 
 
+@login_required
 def mark_as_added(request, id):
-    if not request.user.is_authenticated:
-        return redirect("/admin/")
-
     if request.method == 'POST':
         # TODO: any extra validation to see the POST is actually giving an id?
         entry = MusicEntry.objects.get(id=id)
@@ -41,10 +36,8 @@ def mark_as_added(request, id):
         return redirect('mpindex')
 
 
+@login_required
 def mark_as_downloaded(request, id):
-    if not request.user.is_authenticated:
-        return redirect("/admin/")
-
     if request.method == 'POST':
         entry = MusicEntry.objects.get(id=id)
         entry.DOWNLOADED = True
