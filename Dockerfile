@@ -1,4 +1,4 @@
-FROM python:3.9 as base
+FROM python:3.13 as base
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 WORKDIR /django-pokerfacowaty-com
